@@ -46,42 +46,15 @@ def main (x):
 
 # Parsng the data using BeautifulSoup
 
-    s1 = soup (data , 'lxml')
-
+    s = soup (data , 'html.parser')
 # Now , retrieving the tiltle and rating for the movies
 
-    title = soup.find_all("a", attrs = {"href" : re.compile(r'\/title\/tt+\d*\/')})
-    return title
+    for line in s:
 
-
-# Driver function
-
-if __name__ == '__main__':
-
-    a = main(x)
-
-# Here , x is the genre of the movie that the user opted for.
-if( x == 1 or x ==2 or x==3 ):
-
-    for i in a:
-
-        # Splitting each line of the
-        # IMDb data to scrape movies
-        tmp = str(i).split('>;')
-
-        if(len(tmp) == 3):
-            print(tmp[1][:-3])
-
-            if(count > 13):
-                break
-            count += 1
-    else:
-        for i in a:
-            tmp = str(i).split('>')
-
-            if(len(tmp) == 3):
-                print(tmp[1][:-3])
-
-            if(count > 11):
-                break
-            count+=1
+    #title = soup.find_all("a", attrs = {"href"} , class_= 'unstyled articleLink').text
+        r = ()
+        r= s.find('td', class_="unstyled articleLink")
+            #r = []
+        #i == 0
+        for i in r:
+            print(i)
