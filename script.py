@@ -11,6 +11,8 @@ x = int(input(" 1. Action and adventure \n 2. Animation \n 3. Comedy\n 4. Docume
 #defining thee function used for giving recommendations
 
 #I have used rottentomatoes links to generate recommendations
+#using the same
+
 def main (x):
     if (x==1):
         onurl = 'https://www.rottentomatoes.com/top/bestofrt/top_100_action__adventure_movies/'
