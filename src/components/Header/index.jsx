@@ -8,7 +8,6 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
@@ -171,10 +170,9 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+              Movie
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -191,16 +189,6 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"
