@@ -6,7 +6,9 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Movies />
+			<div className="movie-showcase">
+				<Movies />
+			</div>
 		</div>
 	);
 }

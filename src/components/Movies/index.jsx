@@ -1,33 +1,44 @@
-import React, { useEffect } from 'react';
-
-const series = [
-    'Avengers', 'Fast and furious', 'Iron Man', 'Harry Potter', 'america'
-];
-
+import { MovieTwoTone } from '@material-ui/icons';
+import React, { useEffect, useState } from 'react';
+import api from './api.info';
 
 export default function Movies() {
 
-    const [movies , setMovies] = useState([]);
+    const [movies, setMovies] = useState([]);
+
+    let poster_path = '', title = '';
 
     useEffect(() => {
-        const promises = series.map(series => {
-            fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(series)}&apikey=fed0c24c`)
-                .then(res => res.json())
-        });
-
-        Promise.all(promises)
-            .then(movies => {
-                setMovies(movies)
+        fetch(api.test2_api)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setMovies(data.results);
             });
-    },[]);
+    }, []);
 
-    return movies.map(movie => {
-        return <Movie />
-    })
 
-    return (
-        <div>
-            <h1>HI</h1>
-        </div>
+    return ( 
+        movies.map((movie) => 
+            <div 
+                className="movie" 
+                key = {movie.id}
+            >
+                <img 
+                    src = {api.image_api + movie.poster_path} 
+                    alt = {movie.title}
+                />
+
+                <div className="movie-text-section">
+                    <h4 className="movie-title">
+                        {movie.title}
+                    </h4>
+
+                    <h4 className = "movie-rating">
+                        {movie.vote_average}
+                    </h4>
+                </div>
+            </div>
+        )
     );
 }

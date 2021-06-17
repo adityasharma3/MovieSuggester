@@ -1,3 +1,8 @@
+//variables for color theme
+$bgcolor : black;
+$cirlce: #03045e;
+$text : wheat;
+$moviebg : #023047;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +12,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.movie {
+  // border: 2px solid black;
+  margin: .5rem .25rem;
+  padding: 15px;
+  background-color: $moviebg; 
+  border-radius: 1rem; 
+}
+
+.movie-showcase {
+  display: flex;
+  margin: auto;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  background-color: $bgcolor;
+  color: $text;
+}
+
+.movie-text-section {
+  display: flex;
+  // justify-content: space-around;
+  .movie-title {
+    width: 90%;
+    overflow-x: hidden;
+    text-align: center;
+  }
+
+  .movie-rating {
+    width: auto;
+    background-color: black;
+    color: whitesmoke;
+    padding : 0.5rem;
+    margin: auto;
+    border-radius: 100%;
+  }
 }
