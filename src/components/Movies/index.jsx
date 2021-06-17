@@ -1,12 +1,12 @@
-import { MovieTwoTone } from '@material-ui/icons';
+import { color } from '@material-ui/system';
+import { display } from '@material-ui/system';
 import React, { useEffect, useState } from 'react';
+import handleOnSubmit , {inputVal} from '../Header';
 import api from './api.info';
 
 export default function Movies() {
 
     const [movies, setMovies] = useState([]);
-
-    let poster_path = '', title = '';
 
     useEffect(() => {
         fetch(api.test2_api)
@@ -17,6 +17,7 @@ export default function Movies() {
             });
     }, []);
 
+    console.log(inputVal);
 
     return ( 
         movies.map((movie) => 
@@ -34,10 +35,21 @@ export default function Movies() {
                         {movie.title}
                     </h4>
 
-                    <h4 className = "movie-rating">
+
+                    <h4 
+                        className = "movie-rating"
+                        // style = {{movie.vote_average > 8} ? {color : green} : {color : yellow}} 
+                    >
                         {movie.vote_average}
+                        
+                        {/* {movie.vote_average > 8 ? {className = "movie-rating-good"} : {className = "movie-rating-poor"}} */}
+
                     </h4>
                 </div>
+                    <div className="movie-overview">
+                        <h3>{movie.title}</h3>
+                        <p>{movie.overview}</p>
+                    </div>
             </div>
         )
     );

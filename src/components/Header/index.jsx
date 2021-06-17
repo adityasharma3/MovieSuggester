@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,6 +13,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Movies from '../Movies';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -78,7 +79,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+let inputVal = '';
+
+export const handleOnSubmit = ((e) => {
+  e.preventDefault();
+  inputVal = e.target.value;
+});
+
+export {inputVal};
+
 export default function PrimarySearchAppBar() {
+
+  const [searchTerm , setsearchTerm] = useState('');
+
+  // export const handleOnSubmit = ((e) => {
+  //   e.preventDefault();
+ 
+  // });
+
+  const handleOnChange = (e) => {
+    setsearchTerm(e.target.value);
+  }
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -179,7 +201,11 @@ export default function PrimarySearchAppBar() {
               <SearchIcon />
             </div>
             <InputBase
+              className = "search-input"
+              onSubmit = {handleOnSubmit}
               placeholder="Search…"
+              value = {searchTerm}
+              onChange = {handleOnChange}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
